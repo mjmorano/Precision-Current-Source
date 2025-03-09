@@ -1,0 +1,97 @@
+(footprint "USB-MICRO-B" (version 20221018) (generator pcbnew)
+  (layer "F.Cu")
+  (attr smd)
+  (fp_text reference "REF**" (at 2.7975 -3.3175) (layer "F.SilkS") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp cdb79434-eb9f-4d8d-b643-cd8222478893)
+  )
+  (fp_text value "MOLEX_1051330002" (at 9.7825 -4.7575) (layer "F.Fab") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 24eab2c5-4fcf-431b-9547-10ec7d563e95)
+  )
+  (fp_line (start -4.15 -2.375) (end 4.15 -2.375)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS") (tstamp 01b79c59-a994-41cb-8c5f-5efdd7d9905c))
+  (fp_line (start -4.15 2.375) (end -4.15 -2.375)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS") (tstamp 5b87a661-8df4-4729-9c60-1d5866c720df))
+  (fp_line (start 4.15 -2.375) (end 4.15 2.375)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS") (tstamp c22ae7d3-2f48-4299-9b32-0b30e89565f1))
+  (fp_line (start 4.15 2.375) (end -4.15 2.375)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS") (tstamp 48f497bd-8b19-4b7d-9d7f-095d0a25efa8))
+  (fp_poly
+    (pts
+      (xy -1.5875 -1.6385)
+      (xy -1.0125 -1.6385)
+      (xy -1.0125 -0.0115)
+      (xy -1.5875 -0.0115)
+    )
+
+    (stroke (width 0.01) (type solid)) (fill solid) (layer "F.Mask") (tstamp 22dd2bdf-0d31-4aed-b723-5b865ebe72aa))
+  (fp_poly
+    (pts
+      (xy -0.9375 -1.6385)
+      (xy -0.3625 -1.6385)
+      (xy -0.3625 -0.0115)
+      (xy -0.9375 -0.0115)
+    )
+
+    (stroke (width 0.01) (type solid)) (fill solid) (layer "F.Mask") (tstamp 4998cbf5-39a5-41fa-b435-b4ca75db7859))
+  (fp_poly
+    (pts
+      (xy -0.2875 -1.6385)
+      (xy 0.2875 -1.6385)
+      (xy 0.2875 -0.0115)
+      (xy -0.2875 -0.0115)
+    )
+
+    (stroke (width 0.01) (type solid)) (fill solid) (layer "F.Mask") (tstamp b10d9352-b546-4029-b24b-e43c4490bfdf))
+  (fp_poly
+    (pts
+      (xy 0.3625 -1.6385)
+      (xy 0.9375 -1.6385)
+      (xy 0.9375 -0.0115)
+      (xy 0.3625 -0.0115)
+    )
+
+    (stroke (width 0.01) (type solid)) (fill solid) (layer "F.Mask") (tstamp 49939b84-e678-4cab-b709-5f9dd771a95d))
+  (fp_poly
+    (pts
+      (xy 1.0125 -1.6385)
+      (xy 1.5875 -1.6385)
+      (xy 1.5875 -0.0115)
+      (xy 1.0125 -0.0115)
+    )
+
+    (stroke (width 0.01) (type solid)) (fill solid) (layer "F.Mask") (tstamp 3f67f7b4-3e17-464d-949a-f35c993035cd))
+  (fp_line (start -4.3 -2.525) (end 4.3 -2.525)
+    (stroke (width 0.01) (type solid)) (layer "F.CrtYd") (tstamp ed71e707-1a50-4d09-a037-e2454009af76))
+  (fp_line (start -4.3 2.525) (end -4.3 -2.525)
+    (stroke (width 0.01) (type solid)) (layer "F.CrtYd") (tstamp 13396996-8df4-4a13-b729-770787ab1e65))
+  (fp_line (start 4.3 -2.525) (end 4.3 2.525)
+    (stroke (width 0.01) (type solid)) (layer "F.CrtYd") (tstamp 1ddd2f97-8b25-4fb0-8360-ac964ff49489))
+  (fp_line (start 4.3 2.525) (end -4.3 2.525)
+    (stroke (width 0.01) (type solid)) (layer "F.CrtYd") (tstamp ad42a256-e1c9-48de-8079-78d11ac6a82a))
+  (fp_line (start -4 -2.225) (end 4 -2.225)
+    (stroke (width 0.13) (type solid)) (layer "F.Fab") (tstamp 41eb8088-aa46-45b7-8b47-c6532634eb40))
+  (fp_line (start -4 2.225) (end -4 -2.225)
+    (stroke (width 0.13) (type solid)) (layer "F.Fab") (tstamp 1a6897fb-7ebd-4e59-a1fa-1dc640b30ecb))
+  (fp_line (start 4 -2.225) (end 4 2.225)
+    (stroke (width 0.13) (type solid)) (layer "F.Fab") (tstamp a44b9c83-e457-4086-86e0-23b93aed7538))
+  (fp_line (start 4 2.225) (end -4 2.225)
+    (stroke (width 0.13) (type solid)) (layer "F.Fab") (tstamp 9e7dfec7-bc13-405a-baaa-e4dc8de5beb1))
+  (pad "1" smd rect (at -1.3 -0.825) (size 0.448 1.5) (layers "F.Cu" "F.Paste") (tstamp b58cdf4e-8927-42e0-a783-c62836a825f7))
+  (pad "2" smd rect (at -0.65 -0.825) (size 0.448 1.5) (layers "F.Cu" "F.Paste") (tstamp 2987d91b-62ff-4571-b321-654f05ce34fc))
+  (pad "3" smd rect (at 0 -0.825) (size 0.448 1.5) (layers "F.Cu" "F.Paste") (tstamp e7f953cf-1dda-49ef-9dc5-b34be096c380))
+  (pad "4" smd rect (at 0.65 -0.825) (size 0.448 1.5) (layers "F.Cu" "F.Paste") (tstamp 53f924dd-220f-4d5e-b455-2d8ca4bb2576))
+  (pad "5" smd rect (at 1.3 -0.825) (size 0.448 1.5) (layers "F.Cu" "F.Paste") (tstamp 8391a4c7-a40f-4dc1-b44f-934d857e3660))
+  (pad "SH1" thru_hole oval (at -2.8 -1.075) (size 1.8 1.1) (drill oval 1.2 0.5) (layers "*.Cu" "*.Mask")
+    (solder_mask_margin 0.0762) (tstamp ffc66386-b253-4ebf-9317-0cfc37d6f528))
+  (pad "SH2" thru_hole oval (at 0 1.075) (size 2.2 1.1) (drill oval 1.6 0.5) (layers "*.Cu" "*.Mask")
+    (solder_mask_margin 0.0762) (tstamp de58e515-d9fa-42ee-a3d9-ae8e12582bef))
+  (pad "SH3" thru_hole oval (at 2.8 -1.075) (size 1.8 1.1) (drill oval 1.2 0.5) (layers "*.Cu" "*.Mask")
+    (solder_mask_margin 0.0762) (tstamp fb79c2eb-ca4c-471d-9ba7-b8850eb38582))
+  (model "${KIPRJMOD}/3D Models/USB_Header.stp"
+    (offset (xyz 0 0 2.6))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 180 0 0))
+  )
+)

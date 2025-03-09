@@ -1,0 +1,255 @@
+
+(kicad_symbol_lib (version 20211014) (generator kicad_symbol_editor)
+  (symbol "2118726-2" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (property "Reference" "J" (id 0) (at -7.62 3.302 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Value" "2118726-2" (id 1) (at -7.62 -73.66 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Footprint" "2118726-2:TE_2118726-2" (id 2) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "PARTREV" "A2" (id 4) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "STANDARD" "Manufacturer Recommendations" (id 5) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MAXIMUM_PACKAGE_HEIGHT" "9.75 mm" (id 6) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MANUFACTURER" "TE Connectivity" (id 7) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (symbol "2118726-2_0_0"
+      (rectangle (start -7.62 -71.12) (end 7.62 2.54)
+        (stroke (width 0.254)) (fill (type background))
+      )
+      (pin passive line (at -12.7 0.0 0) (length 5.08)
+        (name "SHIELD"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S1"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -2.54 0) (length 5.08)
+        (name "SHIELD__1"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -5.08 0) (length 5.08)
+        (name "SHIELD__2"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S3"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -7.62 0) (length 5.08)
+        (name "SHIELD__3"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S4"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -10.16 0) (length 5.08)
+        (name "SHIELD__4"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S5"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -12.7 0) (length 5.08)
+        (name "SHIELD__5"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S6"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -15.24 0) (length 5.08)
+        (name "SHIELD__6"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S7"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -17.78 0) (length 5.08)
+        (name "SHIELD__7"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S8"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -20.32 0) (length 5.08)
+        (name "SHIELD__8"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S9"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -22.86 0) (length 5.08)
+        (name "SHIELD__9"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S10"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -25.4 0) (length 5.08)
+        (name "SHIELD__10"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S11"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -27.94 0) (length 5.08)
+        (name "SHIELD__11"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S12"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -30.48 0) (length 5.08)
+        (name "SHIELD__12"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S13"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -33.02 0) (length 5.08)
+        (name "SHIELD__13"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S14"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -35.56 0) (length 5.08)
+        (name "SHIELD__14"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S15"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -38.1 0) (length 5.08)
+        (name "SHIELD__15"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S16"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -40.64 0) (length 5.08)
+        (name "SHIELD__16"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S17"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -43.18 0) (length 5.08)
+        (name "SHIELD__17"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S18"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -45.72 0) (length 5.08)
+        (name "SHIELD__18"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S19"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -48.26 0) (length 5.08)
+        (name "SHIELD__19"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S20"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -50.8 0) (length 5.08)
+        (name "SHIELD__20"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S21"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -53.34 0) (length 5.08)
+        (name "SHIELD__21"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S22"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -55.88 0) (length 5.08)
+        (name "SHIELD__22"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S23"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -58.42 0) (length 5.08)
+        (name "SHIELD__23"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S24"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -60.96 0) (length 5.08)
+        (name "SHIELD__24"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S25"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -63.5 0) (length 5.08)
+        (name "SHIELD__25"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S26"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -66.04 0) (length 5.08)
+        (name "SHIELD__26"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S27"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin passive line (at -12.7 -68.58 0) (length 5.08)
+        (name "SHIELD__27"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "S28"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+    )
+  )
+)
