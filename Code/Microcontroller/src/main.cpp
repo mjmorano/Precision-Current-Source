@@ -4,7 +4,7 @@
  * the Analog Devices CN0216 circuit from the lab example for reading the ADC.
  * 
  * Author: M. Morano
- * Date: 2/26/2025
+ * Date: 4/25/2025
 */
 
 #include <Arduino.h>
@@ -15,38 +15,36 @@
 #include "AD7789.h"
 
 // Do all the setup stuff
-#define AD7789_SS 10        // CS pin for the AD7791
-#define STAT 2              // Stats LED pin
-#define OC 3                // Overcurrent LED pin
-#define OT 4                // Overtemp LED pin
-#define LD 9                // LD pin for the LTC1595
-#define TS1 A0              // TS1 on ADC channel 0
-#define TS2 A1              // TS1 on ADC channel 1
+#define STAT 2      // Stats LED pin
+#define OC 3        // Overcurrent LED pin
+#define OT 4        // Overtemp LED pin
+#define LD 9        // LD pin for the LTC1595
+#define TS1 A0      // TS1 on ADC channel 0
+#define TS2 A1      // TS2 on ADC channel 1
 
-float temp1 = 0.0;                          // NTC1 temperature reading
-float temp2 = 0.0;                          // NTC2 temperature reading
-const float beta = 3892.0;                  // Beta value for NTC
 const float maxAdcCode = pow(2, 24);        // Max code for 24 bit ADC
 const float maxDacCode = pow(2, 16) - 1;    // Max code for 16 bit DAC
-float R1 = 10.0;                            // Current shunt resistor value
-float Rdac = 7e3;                           // DAC feedback resistor value
-float vref = 2.5;                           // ADC reference voltage
+float R1 = 10.0f;                           // Current shunt resistor value. Change this if using different value
+float vref = 2.5f;                          // ADC reference voltage
 uint16_t code = 0;                          // Code for DAC current setpoint
 float I = 0.0;                              // Current set value
 uint32_t myTime = 0;                        // Used for polling the temperature sensors
 uint8_t nAvg = 1;                           // Number of ADC averages
+bool adcGood = false;
 
+// Temperature sensor stuff
 Adafruit_TMP117  tmp117;
 sensors_event_t temp;
 bool tmpFound = true;
-bool adcGood = false;
+float* Ta = &temp.temperature;
+float Tr = 0.0f;                // NTC1 temperature reading
+float Tm = 0.0f;                // NTC2 temperature reading
+const float beta = 3892.0f;     // Beta value for NTC
+float TaMax = 80.f;             // Maximum temperature for the enclosure before shutdown
+float TrMax = 90.f;             // Maximum temperature for the feedback resistor before shutdown
+float TmMax = 90.f;             // Maximum temperature for the MOSFET before shutdown
 
-// ADC Calibration Values
-const float scale = vref/maxAdcCode/R1;   // Sets the scale factor for ADC reading
-const float offset = 0.0;                 // Sets offset for ADC reading
-const char cal_date[] = "NOV_1_2023";     // Date that current source was last calibrated
-
-const char term = '\n';                   // Terminator for serial interface
+const char term = '\n';         // Terminator for serial interface
 
 float read_ADC(){
   
@@ -84,22 +82,22 @@ float read_ADC_VDD(){
 void readTemps(){
   int sensorValue = analogRead(TS1);
   float RNTC = 1e3 / (1023.0 / sensorValue - 1);
-  temp1 = 1.f / ( 1.f / 298.15f + (1.f / beta) * (float)log(RNTC / 1e3f) ) - 273.25f; // Gives the temperature in celsius
-  delay(10);
+  Tr = 1.f / ( 1.f / 298.15f + (1.f / beta) * (float)log(RNTC / 1e3f) ) - 273.25f; // Gives the temperature in celsius
+  delay(1);
   sensorValue = analogRead(TS2);
   RNTC = 1e3 / (1023.0 / sensorValue - 1);
-  temp2 = 1.f / ( 1.f / 298.15f + (1.f / beta) * (float)log(RNTC / 1e3f) ) - 273.25f; // Gives the temperature in celsius
+  Tm = 1.f / ( 1.f / 298.15f + (1.f / beta) * (float)log(RNTC / 1e3f) ) - 273.25f; // Gives the temperature in celsius
 }
 
-void writeDAC(unsigned int code){
+void writeDAC(uint16_t code){
   SPI.beginTransaction( SPISettings(1000000, MSBFIRST, SPI_MODE0) );
   SPI.transfer16(code);
   SPI.endTransaction();
-  digitalWrite(LD,LOW);
-  digitalWrite(LD,HIGH);
+  digitalWrite(LD, LOW);
+  digitalWrite(LD, HIGH);
 }
 
-bool AD7789INIT(void){
+bool AD7789INIT(){
 	AD7789.writeAD7789(RESET, 0xFF);		      // Resets the part for initial use
 	delay(1000);
   AD7789.writeAD7789(COMM_WRITE_VDD, 0x00);
@@ -172,6 +170,48 @@ void parseCmd(String inString){
         } else 
           Serial.println("Invalid number");
 
+      } else if (!strcmp(cmd, "TrMax")){        
+        float limit = (float)strtod(value, &end);       
+
+        if (isControl(*end)){
+          if (limit >= 0.f && limit <= 100.f){
+            TrMax = limit;
+            Serial.println("Ok");
+
+          } else 
+            Serial.println("TrMax must be between 0 and 100 C");
+
+        } else
+            Serial.println("Invalid temperature");
+
+      } else if (!strcmp(cmd, "TaMax")){        
+        float limit = (float)strtod(value, &end);       
+
+        if (isControl(*end)){
+          if (limit >= 0.f && limit <= 100.f){
+            TaMax = limit;
+            Serial.println("Ok");
+
+          } else 
+            Serial.println("TaMax must be between 0 and 100 C");
+
+        } else
+            Serial.println("Invalid temperature");
+
+      } else if (!strcmp(cmd, "TmMax")){        
+        float limit = (float)strtod(value, &end);       
+
+        if (isControl(*end)){
+          if (limit >= 0.f && limit <= 100.f){
+            TmMax = limit;
+            Serial.println("Ok");
+
+          } else 
+            Serial.println("TmMax must be between 0 and 100 C");
+
+        } else
+            Serial.println("Invalid temperature");
+
       } else
         Serial.println("Invalid command");
 
@@ -188,6 +228,24 @@ void parseCmd(String inString){
     } else if (!strcmp(cmd, "curr")){
       Serial.println(read_ADC(), 7);
 
+    } else if (!strcmp(cmd, "TaMax")){
+      Serial.println(TaMax, 2);
+
+    } else if (!strcmp(cmd, "TrMax")){
+      Serial.println(TrMax, 2);
+
+    } else if (!strcmp(cmd, "TmMax")){
+      Serial.println(TmMax, 2);
+
+    } else if (!strcmp(cmd, "Tr")){
+      Serial.println(Tr, 2);
+
+    } else if (!strcmp(cmd, "Tm")){
+      Serial.println(Tm, 2);
+
+    } else if (!strcmp(cmd, "Ta")){
+      Serial.println(*Ta, 2);
+
     } else if (!strcmp(cmd, "code")){
       Serial.println(code);
 
@@ -200,12 +258,12 @@ void parseCmd(String inString){
     } else if(!strcmp(cmd, "temp")){
       if (tmpFound){
         tmp117.getEvent(&temp);
-        Serial.print(temp.temperature, 2);
+        Serial.print(*Ta, 2);
         Serial.print(", ");
       }
-      Serial.print(temp1, 2);
+      Serial.print(Tr, 2);
       Serial.print(", ");
-      Serial.println(temp2, 2);
+      Serial.println(Tm, 2);
 
     } else if(!strcmp(cmd, "Vdd")){
       AD7789.writeAD7789(COMM_WRITE_VDD, 0x00);
@@ -263,7 +321,6 @@ void setup(){
     Serial.println("Failed to find TMP117 chip");
     tmpFound = false;
     temp.temperature = 0.f;
-
   } else {
     Serial.println("TMP117 Found");
     tmp117.getEvent(&temp);
@@ -275,7 +332,7 @@ void setup(){
   // Read NTC temperature sensors
   readTemps();
 
-  if (adcGood && temp1 < 90.f && temp2 < 90.f && temp.temperature < 80.f){
+  if (adcGood && Tr < TrMax && Tm < TmMax && *Ta < TaMax){
     Serial.println("Ready.");
     digitalWrite(STAT, HIGH);
 
@@ -285,18 +342,18 @@ void setup(){
     digitalWrite(OC, HIGH);
     errorState();
 
-  } else if (temp1 >= 90.f){
+  } else if (Tr >= TrMax){
     Serial.println("Error: R1 overtemp at startup.");
     digitalWrite(OT, HIGH);
     errorState();
 
-  } else if (temp2 >= 90.f){
+  } else if (Tm >= TmMax){
     Serial.println("Error: MOSFET overtemp at startup.");
     digitalWrite(OT, HIGH);
     errorState();
 
-  } else if (temp.temperature > 80.f){
-    Serial.println("Error: Enclosure overtemp at startup.");
+  } else if (*Ta > TaMax){
+    Serial.println("Error: Ambient overtemp at startup.");
     digitalWrite(OT, HIGH);
     errorState();
 
@@ -312,23 +369,23 @@ void setup(){
 
 void loop(){
 
-  if(millis() >= myTime + 500UL){
+  if (millis() >= myTime + 500UL){
     readTemps();
     if (tmpFound)
       tmp117.getEvent(&temp);
     else
       temp.temperature = 0.f;
 
-    if( temp1 >= 90.f || temp2 >= 90.f || temp.temperature >= 80.f){
+    if (Tr >= TrMax || Tm >= TmMax || *Ta >= TaMax){
       writeDAC(0);
-      digitalWrite(OT,HIGH);
+      digitalWrite(OT, HIGH);
       errorState();
     }
     myTime = millis();
 
   }
 
-  if( Serial.available() ){
+  if (Serial.available()){
     String cmd = Serial.readStringUntil(term);
 
     if (cmd == "")
