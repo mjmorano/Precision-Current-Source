@@ -3,8 +3,9 @@ This is all of the design files and the code needed for my precision current sou
 
 # Stability Measurement
 Since this is meant to be used for driving gradient and shim coils for long experimental runs, temperature stability is critical. To measure the stability I rented a Keysight 3458A and logged data for a week at maximum output current and the result can be seen in the plot below. Allan deviations for this data are also shown. The current stability could be further improved by using a different voltage reference, the LTZ1000A or LM399 for example, but these would come with a significant accuracy penalty. Of course the accuracy can be calibrated in software, but that requires the user to have a very good DMM and makes the assembly process more complicated. I tried to balance initial accuracy and temperature stability as much as possible.
-![stability](https://github.com/user-attachments/assets/cd8898b0-9a6b-4bb2-b677-319b22cbd45b)
-![allandevs](https://github.com/user-attachments/assets/da60a58a-863c-4b8f-b5f4-a49112057360)
+
+![stability](https://github.com/user-attachments/assets/0c841162-d0d3-4aff-b783-4f881fc1e3cc)
+![adevs](https://github.com/user-attachments/assets/ae9102fe-52ee-4cb9-8865-a3c8f8de0e02)
 
 # Serial Interface
 When the device is connected to the computer it should show up as a COM port in windows and a ttyUSB device on Linux. On Linux the device will need to be chmodded in order to connect to it using pyserial. Usually the FTDI drivers automatically download or are already installed, but if not they can be downloaded [here](https://ftdichip.com/drivers/vcp-drivers/). The interface uses eight data bits, no parity, and one stop bit at 115200 baud. On powerup the device does some self checks and looks to see if the optional tmp117 temperature sensor is present. After connecting to the serial interface two readlines need to be done, the first says whether the tmp117 is detected or not, and the second is for any detected errors. If the device detects no errors the second readline will return "Ready." Examples of all of the commands 
