@@ -62,7 +62,7 @@ float read_ADC(){
     reading += AD7789.readAD7789(DATA_READ);
   }
   
-  return ((float)reading / (float)nAvg) * scale + offset;
+  return ((float)reading / (float)nAvg) * vref;
 }
 
 float read_ADC_VDD(){
@@ -309,9 +309,8 @@ void setup(){
   pinMode(OC, OUTPUT);
   digitalWrite(OC, LOW);
   pinMode(STAT, OUTPUT);
-  digitalWrite(STAT, LOW);
-  pinMode(AD7789_SS, OUTPUT);	        
-  digitalWrite(AD7789_SS, HIGH);		  
+  digitalWrite(STAT, LOW);       
+  digitalWrite(SS, HIGH);		  
   pinMode(LD, OUTPUT);                
   digitalWrite(LD, HIGH);
   
