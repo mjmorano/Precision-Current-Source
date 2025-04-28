@@ -62,7 +62,7 @@ float read_ADC(){
     reading += AD7789.readAD7789(DATA_READ);
   }
   
-  return ((float)reading / (float)nAvg) * vref;
+  return ((float)reading / (float)nAvg) * vref / maxAdcCode / R1;
 }
 
 float read_ADC_VDD(){
