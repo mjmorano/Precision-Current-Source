@@ -1,5 +1,5 @@
 # Overview
-This is all of the design files and the code needed for my precision current source. The code for the microcontroller was made using the Arduino framework and PlatformIO so it's easy to modify and can be uploaded without neededing a programmer, just an Arduino. The serial interface features a few basic commands for setting the current and reading it back using the onboard ADC, as well as reading the internal temperature sensors. I added a lot of error checking to the firmware so it should be basically impossible to make the device do something that it shouldn't, and give the user feedback if their inputs are accepted or not. This design uses an external voltage source up to 100 volts, so it can be used with relatively high resistance loads. It is also suitable for high inductance loads, and has been verified stable into 250 mH.
+This is all of the design files and the code needed for my precision current source. The code for the microcontroller was made using the Arduino framework and PlatformIO so it's easy to modify and can be uploaded without neededing a programmer, just an Arduino. The serial interface features a few basic commands for setting the current and reading it back using the onboard ADC, as well as reading the internal temperature sensors. I added a lot of error checking to the firmware so it should be basically impossible to make the device do something that it shouldn't, and give the user feedback if their inputs are accepted or not. This design uses an external voltage source up to 100 volts, so it can be used with relatively high resistance loads. It is also suitable for high inductance loads, and has been verified stable into 250 mH. The front panel for the enclosure is an aluminum PCB with no copper layers and the gerber files are included in KiCad/Gerbers.
 
 <p align="center">
   <img src=https://github.com/user-attachments/assets/c5d25695-98c0-4fc6-a0a8-a178284d2bb7 />
@@ -26,7 +26,7 @@ Once it's uploaded connect the Arduino pins to the 6 pin header on the current s
 
 
   | Arduino | Current Source |
-  |---------|----------------|
+  |:-------:|:--------------:|
   |    10   |    RESET       |
   |    11   |    MOSI        |
   |    12   |    MISO        |
@@ -35,14 +35,14 @@ Once it's uploaded connect the Arduino pins to the 6 pin header on the current s
   |   GND   |    GND         |
 
 
-From here under tools set the programmer to be "Arduino as ISP", then click burn bootloader. If everything is working right a message should pop up in the bottom right corner of the Arduino IDE saying "Burning bootloader...", followed by a message saying "Done burning bootloader."
+Next under tools set the programmer to be "Arduino as ISP", then click burn bootloader. If everything is working right a message should pop up in the bottom right corner of the Arduino IDE saying "Burning bootloader...", followed by a message saying "Done burning bootloader."
 <p align="center">
   <img src=https://github.com/user-attachments/assets/8915f8ca-b316-46a5-80d0-961a422a1a06 />
   <img src=https://github.com/user-attachments/assets/d5e70085-ea2d-4b31-bed8-474886d6a417 />
   <img src=https://github.com/user-attachments/assets/261dac4a-f4db-41c6-ae22-c2dcec10fc9d />
 </p>
 
-Now that the bootloader is burned open the microcontroller folder in VS Code, making sure to have the PlatformIO extension installed. After PlatformIO initializes select the port for the Arduino that was used to burn the bootloader in the bottom left, for me it was COM5.
+Now that the bootloader is burned open the Code/Microcontroller folder from the repo in VS Code, making sure to have the PlatformIO extension installed. After PlatformIO initializes select the port for the Arduino that was used to burn the bootloader in the bottom left, for me it was COM5.
 <p align="center">
   <Img src=https://github.com/user-attachments/assets/bcefc186-d4b8-4972-8e65-b901564c9881 />
 </p>
@@ -57,4 +57,4 @@ Now the device is ready to be connected over USB to a computer.
 
 
 # Serial Interface
-When the device is connected to the computer it should show up as a COM port in windows and a ttyUSB device on Linux. On Linux the device will need to be chmodded in order to connect to it using pyserial. Usually the FTDI drivers automatically download or are already installed, but if not they can be downloaded [here](https://ftdichip.com/drivers/vcp-drivers/). The interface uses eight data bits, no parity, and one stop bit at 115200 baud. On powerup the device does some self checks and looks to see if the optional tmp117 temperature sensor is present. After connecting to the serial interface two readlines need to be done, the first says whether the tmp117 is detected or not, and the second is for any detected errors. If the device detects no errors the second readline will return "Ready." 
+When the device is connected to the computer it should show up as a COM port in windows and a ttyUSB device on Linux. On Linux the device will need to be chmodded in order to connect to it using pyserial. Usually the FTDI drivers automatically download or are already installed, but if not they can be downloaded [here](https://ftdichip.com/drivers/vcp-drivers/). The interface uses eight data bits, no parity, and one stop bit at 115200 baud. On powerup the device does some self checks and looks to see if the optional tmp117 temperature sensor is present. After connecting to the serial interface two readlines need to be done, the first says whether the tmp117 is detected or not, and the second is for any detected errors. If the device detects no errors the second readline will return "Ready." Examples of how to use pyserial with the device are shown in the Code/Serial_Interface_Examples.py file. There are some other commands not shown there, but they won't really be used.
