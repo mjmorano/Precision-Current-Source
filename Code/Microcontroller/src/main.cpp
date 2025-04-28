@@ -19,8 +19,8 @@
 #define OC 3        // Overcurrent LED pin
 #define OT 4        // Overtemp LED pin
 #define LD 9        // LD pin for the LTC1595
-#define TS1 A0      // TS1 on ADC channel 0
-#define TS2 A1      // TS2 on ADC channel 1
+#define TSR A0      // Resistor NTC on ADC channel 0
+#define TSM A1      // MOSFET NTC on ADC channel 1
 
 const float maxAdcCode = pow(2, 24);        // Max code for 24 bit ADC
 const float maxDacCode = pow(2, 16) - 1;    // Max code for 16 bit DAC
@@ -80,11 +80,11 @@ float read_ADC_VDD(){
 }
 
 void readTemps(){
-  int sensorValue = analogRead(TS1);
+  int sensorValue = analogRead(TSR);
   float RNTC = 1e3 / (1023.0 / sensorValue - 1);
   Tr = 1.f / ( 1.f / 298.15f + (1.f / beta) * (float)log(RNTC / 1e3f) ) - 273.25f; // Gives the temperature in celsius
   delay(1);
-  sensorValue = analogRead(TS2);
+  sensorValue = analogRead(TSM);
   RNTC = 1e3 / (1023.0 / sensorValue - 1);
   Tm = 1.f / ( 1.f / 298.15f + (1.f / beta) * (float)log(RNTC / 1e3f) ) - 273.25f; // Gives the temperature in celsius
 }
