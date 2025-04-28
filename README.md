@@ -26,7 +26,7 @@ Once it's uploaded connect the Arduino pins to the 6 pin header on the current s
 
 
   | Arduino | Current Source |
-  |---------|----------------|
+  |:-------:|:--------------:|
   |    10   |    RESET       |
   |    11   |    MOSI        |
   |    12   |    MISO        |
@@ -35,14 +35,14 @@ Once it's uploaded connect the Arduino pins to the 6 pin header on the current s
   |   GND   |    GND         |
 
 
-From here under tools set the programmer to be "Arduino as ISP", then click burn bootloader. If everything is working right a message should pop up in the bottom right corner of the Arduino IDE saying "Burning bootloader...", followed by a message saying "Done burning bootloader."
+Next under tools set the programmer to be "Arduino as ISP", then click burn bootloader. If everything is working right a message should pop up in the bottom right corner of the Arduino IDE saying "Burning bootloader...", followed by a message saying "Done burning bootloader."
 <p align="center">
   <img src=https://github.com/user-attachments/assets/8915f8ca-b316-46a5-80d0-961a422a1a06 />
   <img src=https://github.com/user-attachments/assets/d5e70085-ea2d-4b31-bed8-474886d6a417 />
   <img src=https://github.com/user-attachments/assets/261dac4a-f4db-41c6-ae22-c2dcec10fc9d />
 </p>
 
-Now that the bootloader is burned open the microcontroller folder in VS Code, making sure to have the PlatformIO extension installed. After PlatformIO initializes select the port for the Arduino that was used to burn the bootloader in the bottom left, for me it was COM5.
+Now that the bootloader is burned open the Code/Microcontroller folder from the repo in VS Code, making sure to have the PlatformIO extension installed. After PlatformIO initializes select the port for the Arduino that was used to burn the bootloader in the bottom left, for me it was COM5.
 <p align="center">
   <Img src=https://github.com/user-attachments/assets/bcefc186-d4b8-4972-8e65-b901564c9881 />
 </p>
