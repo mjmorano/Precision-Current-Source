@@ -19,7 +19,7 @@ Since this is meant to be used for driving gradient and shim coils for long expe
 To upload the program to the microcontroller, the Arduino bootloader needs to be burned. The easiest way to do this is in the Arduino IDE, and I'll outline how to do it with either an Uno or a Nano. First the ArduinoISP needs to be uploaded to Arduino and can be found under the example sketches as shown below.
 
 <p align="center">
- <img src=https://github.com/user-attachments/assets/d1432e27-6ddb-44c8-a837-235535343747 />
+ <img src=https://github.com/user-attachments/assets/20c8d19b-1148-4c20-8540-05499a6f8e7e />
 </p>
 
 Once it's uploaded connect the Arduino pins to the 6 pin header on the current source as follows:
