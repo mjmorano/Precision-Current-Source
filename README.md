@@ -16,7 +16,7 @@ Since this is meant to be used for driving gradient and shim coils for long expe
 </p>
 
 # Flashing the Firmware
-To upload the program to the microcontroller, the Arduino bootloader needs to be burned. It's possible to buy the microcontroller with the bootloader already installed, but it's easy to do yourself. The best way to do this is in the Arduino IDE, and I'll outline how to do it with either an Uno or a Nano. First the ArduinoISP needs to be uploaded to Arduino and can be found under the example sketches as shown below.
+To upload the program to the microcontroller, the Arduino bootloader needs to be burned. It's possible to buy the microcontroller with the bootloader already installed, but it's easy to do yourself. The best way to do this is in the Arduino IDE, and I'll outline how to do it with either an Uno or a Nano. First the ArduinoISP sketch needs to be uploaded to Arduino and can be found under the example sketches as shown below.
 
 <p align="center">
  <img src=https://github.com/user-attachments/assets/20c8d19b-1148-4c20-8540-05499a6f8e7e />
