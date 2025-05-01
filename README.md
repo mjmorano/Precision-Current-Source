@@ -16,10 +16,10 @@ Since this is meant to be used for driving gradient and shim coils for long expe
 </p>
 
 # Flashing the Firmware
-To upload the program to the microcontroller, the Arduino bootloader needs to be burned. The easiest way to do this is in the Arduino IDE, and I'll outline how to do it with either an Uno or a Nano. First the ArduinoISP needs to be uploaded to Arduino and can be found under the example sketches as shown below.
+To upload the program to the microcontroller, the Arduino bootloader needs to be burned. It's possible to buy the microcontroller with the bootloader already installed, but it's easy to do yourself. The best way to do this is in the Arduino IDE, and I'll outline how to do it with either an Uno or a Nano. First the ArduinoISP sketch needs to be uploaded to Arduino and can be found under the example sketches as shown below.
 
 <p align="center">
- <img src=https://github.com/user-attachments/assets/d1432e27-6ddb-44c8-a837-235535343747 />
+ <img src=https://github.com/user-attachments/assets/20c8d19b-1148-4c20-8540-05499a6f8e7e />
 </p>
 
 Once it's uploaded connect the Arduino pins to the 6 pin header on the current source as follows:
@@ -58,3 +58,7 @@ Now the device is ready to be connected over USB to a computer.
 
 # Serial Interface
 When the device is connected to the computer it should show up as a COM port in windows and a ttyUSB device on Linux. On Linux the device will need to be chmodded in order to connect to it using pyserial. Usually the FTDI drivers automatically download or are already installed, but if not they can be downloaded [here](https://ftdichip.com/drivers/vcp-drivers/). The interface uses eight data bits, no parity, and one stop bit at 115200 baud. On powerup the device does some self checks and looks to see if the optional tmp117 temperature sensor is present. After connecting to the serial interface two readlines need to be done, the first says whether the tmp117 is detected or not, and the second is for any detected errors. If the device detects no errors the second readline will return "Ready." Examples of how to use pyserial with the device are shown in the Code/Serial_Interface_Examples.py file. There are some other commands not shown there, but they won't really be used.
+
+# Schematics
+[Precision_Current_Source.pdf](https://github.com/user-attachments/files/19999553/Current.Sources.Improved.pdf)
+
