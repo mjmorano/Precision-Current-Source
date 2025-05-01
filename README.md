@@ -60,5 +60,5 @@ Now the device is ready to be connected over USB to a computer.
 When the device is connected to the computer it should show up as a COM port in windows and a ttyUSB device on Linux. On Linux the device will need to be chmodded in order to connect to it using pyserial. Usually the FTDI drivers automatically download or are already installed, but if not they can be downloaded [here](https://ftdichip.com/drivers/vcp-drivers/). The interface uses eight data bits, no parity, and one stop bit at 115200 baud. On powerup the device does some self checks and looks to see if the optional tmp117 temperature sensor is present. After connecting to the serial interface two readlines need to be done, the first says whether the tmp117 is detected or not, and the second is for any detected errors. If the device detects no errors the second readline will return "Ready." Examples of how to use pyserial with the device are shown in the Code/Serial_Interface_Examples.py file. There are some other commands not shown there, but they won't really be used.
 
 # Schematics
-[Current Sources Improved.pdf](https://github.com/user-attachments/files/19999553/Current.Sources.Improved.pdf)
+[Precision_Current_Source.pdf](https://github.com/user-attachments/files/19999553/Current.Sources.Improved.pdf)
 
