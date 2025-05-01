@@ -4,11 +4,11 @@
     (thickness 1.6062)
   )
 
-  (paper "A")
+  (paper "A4")
   (title_block
     (title "Precision Current Source")
-    (date "2024-07-13")
-    (rev "2.1")
+    (date "2025-04-28")
+    (rev "2.0")
     (company "M Morano")
   )
 
