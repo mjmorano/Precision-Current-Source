@@ -2,13 +2,13 @@
 
   (uuid 2f6f8de0-47cb-4ba2-9f4b-eb4d39168b83)
 
-  (paper "A")
+  (paper "A4")
 
   (title_block
     (title "Precision Current Source")
     (date "2024-05-20")
     (rev "2.0")
-    (company "Matt Morano")
+    (company "M Morano")
   )
 
   (lib_symbols
@@ -63,7 +63,7 @@
     (uuid fde1fd84-83fe-4d1d-b627-505c34ea73c1)
   )
 
-  (sheet (at 124.46 88.9) (size 38.1 30.48) (fields_autoplaced)
+  (sheet (at 124.46 88.9) (size 38.735 30.48) (fields_autoplaced)
     (stroke (width 0.1524) (type solid))
     (fill (color 0 0 0 0.0000))
     (uuid 5d3f938f-8d3c-454e-ac34-8087fd606f1d)
@@ -104,14 +104,14 @@
     )
   )
 
-  (sheet (at 68.58 67.31) (size 43.18 52.07) (fields_autoplaced)
+  (sheet (at 88.9 67.31) (size 22.86 52.07) (fields_autoplaced)
     (stroke (width 0.1524) (type solid))
     (fill (color 0 0 0 0.0000))
     (uuid d143de80-0f16-41a5-b01a-d67f7ae7636c)
-    (property "Sheetname" "Analog" (at 68.58 66.5984 0)
+    (property "Sheetname" "Analog" (at 88.9 66.5984 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
-    (property "Sheetfile" "Analog.kicad_sch" (at 68.58 119.9646 0)
+    (property "Sheetfile" "Analog.kicad_sch" (at 88.9 119.9646 0)
       (effects (font (size 1.27 1.27)) (justify left top))
     )
     (pin "+15V" input (at 111.76 71.12 0)
@@ -153,7 +153,7 @@
     )
   )
 
-  (sheet (at 124.46 67.31) (size 38.1 15.24) (fields_autoplaced)
+  (sheet (at 124.46 67.31) (size 38.735 15.24) (fields_autoplaced)
     (stroke (width 0.1524) (type solid))
     (fill (color 0 0 0 0.0000))
     (uuid e42b460e-5cfc-44d0-b63c-aaab970dd1bd)
