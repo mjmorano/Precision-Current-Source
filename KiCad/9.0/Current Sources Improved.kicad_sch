@@ -1,0 +1,152 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "2f6f8de0-47cb-4ba2-9f4b-eb4d39168b83")
+	(paper "A4")
+	(title_block
+		(title "Precision Current Source")
+		(date "2024-05-20")
+		(rev "2.0")
+		(company "M Morano")
+	)
+	(lib_symbols)
+	(sheet
+		(at 152.4 63.5)
+		(size 26.67 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "5d3f938f-8d3c-454e-ac34-8087fd606f1d")
+		(property "Sheetname" "Digital"
+			(at 152.4 61.9234 0)
+			(effects
+				(font
+					(size 3 3)
+					(thickness 0.6)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Digital.kicad_sch"
+			(at 152.4 89.4846 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Current Sources Improved"
+				(path "/2f6f8de0-47cb-4ba2-9f4b-eb4d39168b83"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 50.8 63.5)
+		(size 25.4 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "d143de80-0f16-41a5-b01a-d67f7ae7636c")
+		(property "Sheetname" "Analog"
+			(at 50.8 61.9234 0)
+			(effects
+				(font
+					(size 3 3)
+					(thickness 0.6)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Analog.kicad_sch"
+			(at 50.8 89.4846 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Current Sources Improved"
+				(path "/2f6f8de0-47cb-4ba2-9f4b-eb4d39168b83"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 101.6 63.5)
+		(size 25.4 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "e42b460e-5cfc-44d0-b63c-aaab970dd1bd")
+		(property "Sheetname" "POWER"
+			(at 101.6 61.9234 0)
+			(effects
+				(font
+					(size 3 3)
+					(thickness 0.6)
+					(bold yes)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Low Noise Power Supply.kicad_sch"
+			(at 101.6 89.4846 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Current Sources Improved"
+				(path "/2f6f8de0-47cb-4ba2-9f4b-eb4d39168b83"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
